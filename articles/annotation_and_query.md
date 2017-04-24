@@ -181,7 +181,7 @@ For example, the TCGA Pan-Cancer Project has a `projectId` of syn300013.
 So, the query to find all files and all annotations associated with this `Project` would be:
 
 ```
-SELECT * FROM file WHERE projectId=="syn300013"
+SELECT * FROM file WHERE projectId="syn300013"
 ```
 
 
@@ -194,19 +194,19 @@ To list the `Files` and annotations in a specific `Folder`, you need to know the
 So, the query to find all `Files` and all annotations in this `Folder` would be:
 
 ```
-SELECT * FROM file WHERE parentId=="syn1524884"
+SELECT * FROM file WHERE parentId="syn1524884"
 ```
 
 If you wanted to find all the sub-folders in this `Folder`, you would do:
 
 ```
-SELECT * FROM folder WHERE parentId=="syn1524884"
+SELECT * FROM folder WHERE parentId="syn1524884"
 ```
 
 If you wanted both `Files` and `Folders`, this would work:
 
 ```
-SELECT * FROM entity WHERE parentId=="syn1524884"
+SELECT * FROM entity WHERE parentId="syn1524884"
 ```
 
 
@@ -222,21 +222,21 @@ For example, you can identify all `Files` annotated as `bam` files (`fileType = 
 {% include note.html content="You will only be able to query the files you currently have permission to access." %}
 
 ```
-SELECT * FROM file WHERE fileType=="bam"
+SELECT * FROM file WHERE fileType="bam"
 ```
 
 <br/>
 Likewise, if you had put the RNA-seq related files described in the section above into a project (for example syn12345) with the described annotations, then you could find all of the files for `Condition A` for `Sample 1`:
 
 ```
-SELECT * FROM file WHERE projectId=="syn12345" AND sample=="1" AND condition=="A"
+SELECT * FROM file WHERE projectId="syn12345" AND sample="1" AND condition="A"
 ```
 
 <br/>
 Lastly, you can query on a subset of entities that have a specific annotation. You can limit the annotations you want displayed as following.
 
 ```
-SELECT id,name,dataType,fileType FROM file WHERE projectId=="syn12345" AND sample=="1" AND condition=="A"
+SELECT id,name,dataType,fileType FROM file WHERE projectId="syn12345" AND sample="1" AND condition="A"
 ```
 
 <br/>
@@ -246,7 +246,7 @@ Queries can be constructed using one of the analytical clients (command line, Py
 {% tabs %}
 	{% tab Command %}
 		{% highlight bash %}
-synapse query 'SELECT id,name,dataType,fileType FROM file WHERE projectId=="syn12345" AND sample=="1" AND condition=="A"'
+synapse query 'SELECT id,name,dataType,fileType FROM file WHERE projectId="syn12345" AND sample="1" AND condition="A"'
 		{% endhighlight %}
 	{% endtab %}
 
@@ -254,13 +254,13 @@ synapse query 'SELECT id,name,dataType,fileType FROM file WHERE projectId=="syn1
 		{% highlight python %}
 
 
-result = syn.chunkedQuery('SELECT id,name,dataType,fileType FROM file WHERE projectId=="syn12345" AND sample=="1" AND condition=="A"')
+result = syn.chunkedQuery('SELECT id,name,dataType,fileType FROM file WHERE projectId="syn12345" AND sample="1" AND condition="A"')
 		{% endhighlight %}
 	{% endtab %}
 
 	{% tab R %}
 		{% highlight r %}
-result <- synQuery('SELECT id,name,dataType,fileType FROM file WHERE projectId=="syn12345" AND sample=="1" AND condition=="A"')
+result <- synQuery('SELECT id,name,dataType,fileType FROM file WHERE projectId="syn12345" AND sample="1" AND condition="A"')
 		{%endhighlight %}
 	{% endtab %}
 	
@@ -281,7 +281,7 @@ Enter your query in the box and click the **Insert** button. Once you save the w
 You can download files in a folder using queries. Currently this feature is only available in the command line client. For example, if you want to download all files in a folder that has a synapse id of `syn00123`, use
 
 ```
-synapse get -q 'SELECT * FROM file WHERE parentId == "syn00123"'
+synapse get -q 'SELECT * FROM file WHERE parentId = "syn00123"'
 ````
 
 ### See Also
