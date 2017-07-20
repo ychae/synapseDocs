@@ -3,7 +3,6 @@ title: Governance Overview
 layout: article
 excerpt: A look at the Synapse governance process.
 category: governance
-order: 1
 ---
 
 # Synapse Commons Governance Overview

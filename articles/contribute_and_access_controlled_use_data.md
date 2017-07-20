@@ -3,7 +3,6 @@ title: "Contribute and Access Controlled Data"
 layout: article
 excerpt: Learn how to contribute and access different types of Controlled Data.
 category: governance
-order: 4
 ---
 
 <a name="contributing-data"></a>
